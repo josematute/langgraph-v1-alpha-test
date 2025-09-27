@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 
-def save_workflow_diagram(chain, filename=None, directory="diagrams"):
+def save_workflow_diagram(chain, filename=None, directory="diagrams", xray=False):
     """
     Save workflow diagram to file
     
@@ -36,7 +36,7 @@ def save_workflow_diagram(chain, filename=None, directory="diagrams"):
     
     try:
         # Get diagram data and save
-        png_data = chain.get_graph().draw_mermaid_png()
+        png_data = chain.get_graph(xray=xray).draw_mermaid_png()
         with open(filepath, "wb") as f:
             f.write(png_data)
         
