@@ -116,7 +116,7 @@ agent = agent_builder.compile()
 save_workflow_diagram(agent, "my_workflow", "diagrams", True)
 
 # Invoke
-messages = [HumanMessage(content="Add 3 and 4.")]
+messages = [HumanMessage(content="solve this (3*7)/(3+5)")]
 messages = agent.invoke({"messages": messages})
 for m in messages["messages"]:
     m.pretty_print()
