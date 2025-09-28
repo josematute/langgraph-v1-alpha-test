@@ -113,7 +113,7 @@ agent_builder.add_edge("tool_node", "llm_call")
 agent = agent_builder.compile()
 
 # Show the agent
-save_workflow_diagram(agent, "my_workflow", "diagrams", True)
+save_workflow_diagram(agent, "agent-example", "diagrams", True)
 
 # Invoke
 messages = [HumanMessage(content="solve this (3*7)/(3+5)")]

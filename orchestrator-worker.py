@@ -3,7 +3,7 @@ import operator
 from langchain_core.messages import HumanMessage, SystemMessage
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
-from llm_config import llm, quick_save_diagram
+from llm_config import llm, save_workflow_diagram
 from pydantic import BaseModel, Field
 from langgraph.types import Send
 from IPython.display import Markdown
@@ -123,7 +123,8 @@ orchestrator_worker_builder.add_edge("synthesizer", END)
 orchestrator_worker = orchestrator_worker_builder.compile()
 
 # Show the workflow
-quick_save_diagram(orchestrator_worker, "my_workflow")
+save_workflow_diagram(orchestrator_worker, "orchestrator_example", "diagrams", True)
+
 
 # Invoke
 state = orchestrator_worker.invoke({"topic": "Create a report on LLM scaling laws"})

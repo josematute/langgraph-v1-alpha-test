@@ -21,3 +21,4 @@ var/
 .DS_Store
 
 my_workflow.png
+diagrams/*

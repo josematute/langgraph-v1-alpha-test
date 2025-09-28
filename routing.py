@@ -2,7 +2,7 @@ from typing_extensions import Literal
 from langchain_core.messages import HumanMessage, SystemMessage
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
-from llm_config import llm, quick_save_diagram
+from llm_config import llm, save_workflow_diagram
 from pydantic import BaseModel, Field
 
 
@@ -105,7 +105,8 @@ router_builder.add_edge("llm_call_3", END)
 router_workflow = router_builder.compile()
 
 # Show the workflow
-quick_save_diagram(router_workflow, "my_workflow")
+save_workflow_diagram(router_workflow, "routing_example", "diagrams", True)
+
 
 # Invoke
 state = router_workflow.invoke({"input": "Write me a poem about cats"})

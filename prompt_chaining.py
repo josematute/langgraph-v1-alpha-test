@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
-from llm_config import llm, quick_save_diagram
+from llm_config import llm, save_workflow_diagram
 
 
 # Graph state
@@ -61,7 +61,7 @@ workflow.add_edge("polish_joke", END)
 chain = workflow.compile()
 
 # Show workflow
-quick_save_diagram(chain, "my_workflow")
+save_workflow_diagram(chain, "prompt_chaining_example", "diagrams", True)
 
 # Invoke
 state = chain.invoke({"topic": "cats"})

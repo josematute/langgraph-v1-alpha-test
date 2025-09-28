@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
-from llm_config import llm, quick_save_diagram
+from llm_config import llm, save_workflow_diagram
 
 
 # Graph state
@@ -68,7 +68,7 @@ parallel_builder.add_edge("aggregator", END)
 parallel_workflow = parallel_builder.compile()
 
 # Show workflow
-quick_save_diagram(parallel_workflow, "my_workflow")
+save_workflow_diagram(parallel_workflow, "parallelization_example", "diagrams", True)
 
 # Invoke
 state = parallel_workflow.invoke({"topic": "cats"})

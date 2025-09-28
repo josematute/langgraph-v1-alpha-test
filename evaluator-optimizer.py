@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
-from llm_config import llm, quick_save_diagram
+from llm_config import llm, save_workflow_diagram
 from pydantic import BaseModel, Field
 from typing_extensions import Literal
 
@@ -86,7 +86,7 @@ optimizer_builder.add_conditional_edges(
 optimizer_workflow = optimizer_builder.compile()
 
 # Show the workflow
-quick_save_diagram(optimizer_workflow, "my_workflow")
+save_workflow_diagram(optimizer_workflow, "evaluator_optimizer_example", "diagrams", True)
 
 # Invoke
 state = optimizer_workflow.invoke({"topic": "Cats"})
